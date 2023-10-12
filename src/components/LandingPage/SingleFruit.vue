@@ -4,7 +4,7 @@
       <h1>{{ fruit.name }}</h1>
       <!-- Route to paramecia if the fruit is a paramecia -->
       <h2>Type: <router-link v-if="fruit.type === 'Paramecia'" to="/fruits/type/:type">Paramecia</router-link></h2> 
-      <p>User: {{ fruit.user }}</p>
+      <!-- <p>User: {{ fruit.user }}</p> -->
       <p>First Appearance: {{ fruit.firstAppearance }}</p>
       <p>Abilities: {{ fruit.abilities }}</p>
       <div>

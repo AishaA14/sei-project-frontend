@@ -1,22 +1,24 @@
 <template>
-    <div>
-      <h1>Browse through our fruits</h1>
-      <div v-if="loading">Loading...</div>
-      <div v-else>
-        <div v-for="fruit in fruits" :key="fruit._id">
-          <p><router-link :to="'/fruits/' + fruit._id">{{ fruit.name }}</router-link></p>
-          <!-- Other fruit details can be displayed here if needed -->
-        </div>
-        <div>
-            <!-- Use 'TypeView', 'UserView', and 'FirstAppearanceView' components -->
-            <!-- <TypeView attribute-name="Paramecia" />
-            <UserView attribute-name="User Name" />
-            <FirstAppearanceView attribute-name="Arc Name" /> -->
+  <div class="container">
+    <h1 class="display-4">Browse through our fruits</h1>
+    <div v-if="loading" class="alert alert-info">
+      Loading...
+    </div>
+    <div v-else>
+      <div v-for="fruit in fruits" :key="fruit._id">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <router-link :to="'/fruits/' + fruit._id">{{ fruit.name }}</router-link>
+            </h5>
+          </div>
         </div>
       </div>
-      <p v-if="error">{{ error }}</p>
     </div>
-  </template>
+    <p v-if="error" class="alert alert-danger">{{ error }}</p>
+  </div>
+</template>
+
   
   <script>
   const API_URL = 'http://localhost:4000/fruits/list'
@@ -46,3 +48,14 @@
   };
   </script>
   
+  <style>
+ h1 {
+    font-family: 'Croissant One', sans-serif;
+  }
+  p {
+    font-family: 'Young Serif', sans-serif;
+  }
+  .container{
+    background-color: lightpink;
+  }
+</style>

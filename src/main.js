@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import vue3GoogleLogin from 'vue3-google-login'
 import vue3Cookies from 'vue3-cookies'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle.js';
+
 
 
 const app = createApp(App)
