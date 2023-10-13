@@ -12,8 +12,8 @@
 </template>
 
 <script>
-    import { decodeCredential, googleLogout } from 'vue3-google-login'
-    export default {
+ import { decodeCredential, googleLogout } from 'vue3-google-login'
+ export default {
     name: 'LoginPage',
     data: () => ({
         isInit: false,
@@ -32,32 +32,35 @@
             }                  
     },
     methods: {
-        callback: function (response) {
-            this.isLoggedIn = true
-            const userData = decodeCredential(response.credential)
-            console.log(userData)
-            this.userName = userData.given_name
-            this.$cookies.set('user_session', response.credential)
-            fetch('http://localhost:4000/user/login', {
-                method: 'POST',
-                headers: {
-                 'Content-Type': 'application/json',
-                },
-                body: JSON.stringify ({
-                    email: userData.email
+            callback: function (response) {
+                this.isLoggedIn = true
+                const userData = decodeCredential(response.credential)
+                console.log(userData)
+                this.userName = userData.given_name
+                this.$cookies.set('user_session', response.credential)
+                fetch('http://localhost:4000/user/login', {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify ({
+                        email: userData.email
+                })
             })
-        })
-             .then(() =>{
-                console.log('session saved')
-             })
-        },
-        handleLogOut: function () {
-            googleLogout()
-            this.$cookies.remove('user_session')
-            this.isLoggedIn = false
+                .then(() =>{
+                    console.log('session saved')
+                    // Redirect to the home page after successful login
+                 this.$router.push({ name: 'HomePage' })
+                })
+            },
+            handleLogOut: function () {
+                googleLogout()
+                this.$cookies.remove('user_session')
+                this.isLoggedIn = false
+                this.$router.push({ name: 'HomePage' })
+                }
         }
     }
-}
 </script>
 
 <style>

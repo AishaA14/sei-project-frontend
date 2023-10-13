@@ -8,6 +8,8 @@ import LoginPage from './components/LandingPage/LoginPage'
 import MyFruits from './components/LandingPage/MyFruits'
 import CharacterView from './components/LandingPage/CharacterView'
 import ParameciaFruit from './components/Attributes/Types/ParameciaFruit'
+import LogiaFruit from './components/Attributes/Types/LogiaFruit'
+import ZoanFruit from './components/Attributes/Types/ZoanFruit'
 
 
 const routes = [
@@ -54,8 +56,18 @@ const routes = [
     },
     {
         name: 'ParameciaFruit',
-        path: '/fruits/type/:type',
+        path: '/fruits/type/paramecia',
         component: ParameciaFruit,
+    },
+    {
+        name: 'LogiaFruit',
+        path: '/fruits/type/logia',
+        component: LogiaFruit,
+    },
+    {
+        name: 'ZoanFruit',
+        path: '/fruits/type/zoan',
+        component: ZoanFruit,
     }
    
 

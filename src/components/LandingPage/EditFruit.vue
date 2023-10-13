@@ -3,14 +3,18 @@
     <h1>Edit "{{ fruit.name }}" fruit here</h1>
     <label for="editFruitName">Fruit Name:</label>
     <input type="text" v-model="fruit.name" name="editFruitName" id="editFruitName" placeholder="Fruit name">
-    <label for="editFruitType">Fruit Type:</label>
-    <input type="text" v-model="fruit.type" name="editFruitType" id="editFruitType" placeholder="Fruit type">
-    <label for="editFruitUser">User:</label>
-    <input type="text" v-model="fruit.user" name="editFruitUser" id="editFruitUser" placeholder="User">
-    <label for="editFruitFirstAppearance">First Appearance:</label>
-    <input type="text" v-model="fruit.firstAppearance" name="editFruitFirstAppearance" id="editFruitFirstAppearance" placeholder="First appearance">
+    <label for="editFruitType">Type:</label>
+    <select v-model="fruit.type" name="editFruitType" id="editFruitType">
+      <option value="Paramecia">Paramecia</option>
+      <option value="Logia">Logia</option>
+      <option value="Zoan">Zoan</option>
+    </select>
+
+  
+    
     <label for="editFruitAbilities">Abilities:</label>
     <input type="text" v-model="fruit.abilities" name="editFruitAbilities" id="editFruitAbilities" placeholder="Abilities">
+
     <button @click="editFruit">Submit Update</button>
   </div>
 </template>
@@ -28,7 +32,6 @@ export default {
         name: '',
         type: '',
         user: '',
-        firstAppearance: '',
         abilities: '',
       }
     }
@@ -43,7 +46,6 @@ export default {
           this.fruit.name = data.name;
           this.fruit.type = data.type;
           this.fruit.user = data.user;
-          this.fruit.firstAppearance = data.firstAppearance;
           this.fruit.abilities = data.abilities;
         });
     } catch (error) {
@@ -57,8 +59,7 @@ export default {
       const updatedFruit = {
         name: this.fruit.name,
         type: this.fruit.type,
-        user: this.fruit.user,
-        firstAppearance: this.fruit.firstAppearance,
+        // user: this.fruit.user,
         abilities: this.fruit.abilities,
       };
 

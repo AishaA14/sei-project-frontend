@@ -10,14 +10,14 @@
         <option value="Paramecia">Paramecia</option>
         <option value="Logia">Logia</option>
         <option value="Zoan">Zoan</option>
-        <option value="MythicalZoan">Mythical Zoan</option>
+        <!-- <option value="MythicalZoan">Mythical Zoan</option> -->
       </select>
       
       <label for="character">Character:</label>
       <input type="text" v-model="fruitData.character" name="character" id="character" placeholder="User of the Devil Fruit">
       
-      <label for="firstAppearance">First Appearance:</label>
-      <input type="text" v-model="fruitData.firstAppearance" name="firstAppearance" id="firstAppearance" placeholder="First Appearance of the Devil Fruit">
+      <!-- <label for="firstAppearance">First Appearance:</label>
+      <input type="text" v-model="fruitData.firstAppearance" name="firstAppearance" id="firstAppearance" placeholder="First Appearance of the Devil Fruit"> -->
       
       <label for="abilities">Abilities:</label>
       <input type="text" v-model="fruitData.abilities" name="abilities" id="abilities" placeholder="Abilities of the Devil Fruit">
@@ -41,9 +41,9 @@ export default {
       success: '',
       fruitData: {
         name: '',
-        type: 'Paramecia',
+        type: '',
         character: '',
-        firstAppearance: '',
+        // firstAppearance: '',
         abilities: '',
       },
       email: '', // Initialize user object
@@ -84,7 +84,7 @@ export default {
         name: this.fruitData.name,
         type: this.fruitData.type,
         character: this.fruitData.character,
-        firstAppearance: this.fruitData.firstAppearance,
+        // firstAppearance: this.fruitData.firstAppearance,
         abilities: this.fruitData.abilities,
         user: this.email
       };
@@ -112,9 +112,9 @@ export default {
     clearFields() {
       // Clear input fields
       this.fruitData.name = '';
-      this.fruitData.type = 'Paramecia';
+      this.fruitData.type = '';
       this.fruitData.character = '';
-      this.fruitData.firstAppearance = '';
+      // this.fruitData.firstAppearance = '';
       this.fruitData.abilities = '';
     },
   },
