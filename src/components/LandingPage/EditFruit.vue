@@ -59,7 +59,8 @@ export default {
       const updatedFruit = {
         name: this.fruit.name,
         type: this.fruit.type,
-        // user: this.fruit.user,
+        user: this.fruit.user,
+        loggedInUser: '',
         abilities: this.fruit.abilities,
       };
 

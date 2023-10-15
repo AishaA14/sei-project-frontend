@@ -43,23 +43,12 @@ export default {
         name: '',
         type: '',
         character: '',
-        // firstAppearance: '',
         abilities: '',
       },
       email: '', // Initialize user object
     };
   },
-  // async created() {
-  //   // Fetch user information and set it in the user object
-  //   try {
-  //     const userResponse = await fetch('/user/login');
-  //     if (userResponse.ok) {
-  //       this.user = await userResponse.json();
-  //     }
-  //   } catch (error) {
-  //     console.error('Error fetching user information:', error);
-  //   }
-  // },
+ 
   mounted(){
         if (this.$cookies.isKey('user_session')) {
             this.isLoggedIn = true
@@ -84,7 +73,6 @@ export default {
         name: this.fruitData.name,
         type: this.fruitData.type,
         character: this.fruitData.character,
-        // firstAppearance: this.fruitData.firstAppearance,
         abilities: this.fruitData.abilities,
         user: this.email
       };
@@ -101,6 +89,7 @@ export default {
         if (response.ok) {
           this.success = 'Devil Fruit added successfully.';
           this.clearFields();
+          this.$router.replace({ name: 'FruitList' })
         } else {
           throw new Error('Failed to add Devil Fruit');
         }
@@ -114,7 +103,6 @@ export default {
       this.fruitData.name = '';
       this.fruitData.type = '';
       this.fruitData.character = '';
-      // this.fruitData.firstAppearance = '';
       this.fruitData.abilities = '';
     },
   },

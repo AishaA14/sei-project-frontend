@@ -31,7 +31,7 @@
   methods: {
     async fetchParameciaFruits() {
       try {
-        const response = await fetch('http://localhost:4000/fruits/type/:type')
+        const response = await fetch('http://localhost:4000/fruits/type/paramecia') 
         if (!response.ok) {
           throw new Error('Failed to fetch Paramecia fruits')
         }
