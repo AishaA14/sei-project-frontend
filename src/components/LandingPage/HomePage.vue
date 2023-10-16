@@ -36,7 +36,7 @@
                 <button v-if="textTypingFinished" class="button-pulsate"><router-link :to="'/fruits/list'">View Fruits</router-link></button>
             </div>
             <div class="col-md-4"> Spotlight
-                <img src="@/assets/image3.png" alt="Image" class="img-fluid">
+                <!-- <img src="@/assets/image3.png" alt="Image" class="img-fluid"> -->
             </div>
             </div>
             <div class="row mt-4">

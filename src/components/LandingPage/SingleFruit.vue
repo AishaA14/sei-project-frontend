@@ -30,7 +30,7 @@
 
     <!-- Section 1: Fruit Data -->
     <div class="fruit-card">
-      <img src="@/assets/image2.png" alt="Fruit Image" class="fruit-image">
+      <!-- <img src="@/assets/image2.png" alt="Fruit Image" class="fruit-image"> -->
       <div class="card-details">
       <h1>{{ fruit.name }}</h1>
       <div>
