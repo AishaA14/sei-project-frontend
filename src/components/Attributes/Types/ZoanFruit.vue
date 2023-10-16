@@ -31,7 +31,7 @@ export default {
 methods: {
   async fetchZoanFruits() {
     try {
-      const response = await fetch('http://localhost:4000/fruits/type/zoan') 
+      const response = await fetch(`${process.env.VUE_APP_BACKEND_URL}/fruits/type/zoan`);
       if (!response.ok) {
         throw new Error('Failed to fetch Zoan fruits')
       }

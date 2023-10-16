@@ -31,7 +31,7 @@ export default {
 methods: {
   async fetchLogiaFruits() {
     try {
-      const response = await fetch('http://localhost:4000/fruits/type/logia') 
+      const response = await fetch(`${process.env.VUE_APP_BACKEND_URL}/fruits/type/logia`);
       if (!response.ok) {
         throw new Error('Failed to fetch Logia fruits')
       }

@@ -43,7 +43,7 @@ export default {
   mounted() {
     const route = useRoute();
     try {
-      fetch(`http://localhost:4000/fruits/${route.params.id}`)
+      fetch(`${process.env.VUE_APP_BACKEND_URL}/fruits/${route.params.id}`)
         .then(result => result.json())
         .then(data => {
           this.fruit._id = route.params.id;
@@ -68,7 +68,7 @@ export default {
         abilities: this.fruit.abilities,
       };
 
-      await fetch(`http://localhost:4000/fruits/update/${this.fruit._id}`, {
+      await fetch(`${process.env.VUE_APP_BACKEND_URL}/fruits/update/${this.fruit._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

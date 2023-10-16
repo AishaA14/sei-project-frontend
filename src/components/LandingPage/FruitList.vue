@@ -57,7 +57,7 @@
 
 <script>
 import { useCookies } from 'vue3-cookies';
-const API_URL = 'http://localhost:4000/fruits/list';
+const API_URL = process.env.VUE_APP_BACKEND_URL + '/fruits/list';
 
 export default {
   name: 'FruitList',

@@ -87,7 +87,8 @@ import { useRoute } from 'vue-router';
 import { decodeCredential } from 'vue3-google-login';
 import { useCookies } from 'vue3-cookies'
 
-const API_URL = 'http://localhost:4000/fruits';
+const API_URL = process.env.VUE_APP_BACKEND_URL + '/fruits';
+
 
 export default {
   name: 'SingleFruit',

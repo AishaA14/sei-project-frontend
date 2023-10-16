@@ -31,7 +31,8 @@
 
 <script>
 import { decodeCredential } from 'vue3-google-login'
-const API_URL = 'http://localhost:4000/fruits/add';
+const API_URL = process.env.VUE_APP_BACKEND_URL + '/fruits/add';
+
 
 export default {
   name: 'AddNewFruit',
