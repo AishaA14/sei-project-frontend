@@ -1,40 +1,56 @@
 <template>
+  <body>
   <div>
-    <nav>
-      <button @click="goHome" class="home-button">Home</button>
-      <!-- Account dropdown button -->
-      <div class="btn-group" @click="toggleDropdown">
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Account
-        </button>
-        <div class="dropdown-menu" :class="{ show: isDropdownOpen }">
-          <router-link to="/my-fruits" class="dropdown-item">My Fruits</router-link>
-          <router-link to="/favourites" class="dropdown-item">Favorites</router-link>
-          <button @click="handleLogout" class="dropdown-item">Logout</button>
-          <router-link to="/user/login">Login</router-link>
+     <!-- Top Navigation Section -->
+     <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+              <router-link to="/fruits" @click="$router.push({name: 'HomePage'})">
+            <img src="@/assets/strawhatslogo.png" alt="Logo" style="width: 80px;">
+          </router-link>
+            </a> The One Piece Orchard
+            <button class="navbar-toggler" type="button" @click="toggleDropdown" style="color: white">
+            Account
+            </button>
+            <div :class="{ 'show': isDropdownOpen }" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <!-- add routes -->
+                <li class="nav-item">
+                <router-link v-if="isLoggedIn" to="/fruits/myfruits" class="nav-link" style="color: white">My Fruits</router-link>
+                </li>
+                <li><router-link v-if="isLoggedIn" to="/user/login" class="nav-link" style="color: white">
+                    Log Out
+                </router-link>
+                 <router-link v-else to="/user/login" class="nav-link" style="color: white">Log In</router-link> 
+                 </li> 
+            </ul>
+            </div>
         </div>
-      </div>
-    </nav>
-    <div v-if="fruit" class="single-fruit mt-4 text-center">
-      <h1 class="">{{ fruit.name }}</h1>
-      <h2>Type: 
+        </nav>
+
+    <!-- Section 1: Fruit Data -->
+    <div class="fruit-card">
+      <img src="@/assets/image2.png" alt="Fruit Image" class="fruit-image">
+      <div class="card-details">
+      <h1>{{ fruit.name }}</h1>
+      <div>
+        <h2>Type:</h2>
         <router-link v-if="fruit.type === 'Paramecia'" :to="'/fruits/type/paramecia'">Paramecia</router-link>
         <router-link v-if="fruit.type === 'Logia'" :to="'/fruits/type/logia'">Logia</router-link>
         <router-link v-if="fruit.type === 'Zoan'" :to="'/fruits/type/zoan'">Zoan</router-link>
-      </h2>
+      </div>
+      <h2>Character: {{ fruit.character }}</h2>
       <p>Abilities: {{ fruit.abilities }}</p>
-      <div>
-        <button v-if="isLoggedIn" @click="deleteFruit" class="action-button">Delete this fruit from your collection</button>
-        <button v-if="isLoggedIn" @click="editFruit" class="action-button">Edit this fruit</button>
       </div>
     </div>
-    <!-- Display Reviews -->
+
+    <!-- Section 2: Delete and Edit Options -->
+    <div class="delete-edit-options" v-if="isLoggedIn">
+      <button @click="deleteFruit" class="action-button">Delete this fruit from your collection</button>
+      <button @click="editFruit" class="action-button">Edit this fruit</button>
+    </div>
+
+    <!-- Section 3: Display Reviews -->
     <div class="reviews">
       <h3>Reviews</h3>
       <ul>
@@ -44,9 +60,9 @@
         </li>
       </ul>
     </div>
-    
-    <!-- Add review form -->
-    <div v-if="isLoggedIn">
+
+    <!-- Section 4: Add Review Form -->
+    <div class="add-review" v-if="isLoggedIn">
       <h3>Add a Review</h3>
       <label for="rating">Rating (out of 5):</label>
       <input type="number" v-model="reviewData.rating" name="rating" id="rating" min="1" max="5">
@@ -56,14 +72,20 @@
 
       <button @click="addReview">Submit Review</button>
     </div>
-    <p v-if="errorReview">{{ errorReview }}</p>
-    <p v-if="successReview">{{ successReview }}</p>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+     &copy; StrawHats
+    </footer>
   </div>
+  </body>
 </template>
+
 
 <script>
 import { useRoute } from 'vue-router';
 import { decodeCredential } from 'vue3-google-login';
+import { useCookies } from 'vue3-cookies'
 
 const API_URL = 'http://localhost:4000/fruits';
 
@@ -72,11 +94,14 @@ export default {
   data() {
     return {
       error: '',
+      isLoggedIn: false, // Add a data property to track user's login status
+      isDropdownOpen: false,
       fruit: {
         _id: '',
         name: '',
         type: '',
         user: '',
+        character: '',
         abilities: '',
       },
       reviewData: {
@@ -86,6 +111,18 @@ export default {
       },
       reviews: [] // Initialize the reviews array
     };
+    },
+  beforeRouteEnter(to, from, next) {
+    const { cookies } = useCookies();
+    const userSession = cookies.get('user_session');
+  
+    // Check if the user is logged in
+    const isLoggedIn = !!userSession;
+    console.log(isLoggedIn)
+  
+    next((vm) => {
+      vm.isLoggedIn = isLoggedIn; // Set the login status
+    });
   },
   mounted() {
     if (this.$cookies.isKey('user_session')) {
@@ -127,9 +164,9 @@ export default {
     }
   },
   methods: {
-    goHome() {
-      this.$router.push({ name: 'HomePage' });
-    },
+    toggleDropdown() {
+        this.isDropdownOpen = !this.isDropdownOpen;
+      },
     async deleteFruit() {
       if (confirm('Are you sure you want to delete this fruit?')) {
         try {
@@ -195,3 +232,86 @@ export default {
 </script>
 
 
+<style scoped>
+
+body {
+  background-color: black;
+}
+.fruit-image {
+  width: 80px;
+  height: 80px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.fruit-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #FF6B6B, #70E1D7); /* Gradient background */
+  border: 7px solid #df8918;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+  min-height: 400px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: pulsate 2s infinite alternate, grow 0.2s;
+}
+
+.fruit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(236, 150, 70, 0.849);
+}
+.fruit-card a {
+    
+    color: black; /* Set link color to black */
+  }
+
+.card-details {
+  color: #000000; /* White text */
+  font-family: 'Michroma', sans-serif;
+  font-family: 'Young Serif', serif;
+}
+
+.card-details h1 {
+  font-size: 35px; /* Larger title */
+  margin: 0;
+}
+
+.card-details h2 {
+  font-size: 30px; /* Larger subtitle */
+  margin: 0;
+}
+
+.card-details p {
+  font-size: 16px; /* Larger text */
+  margin: 20px 0; /* Increased margin */
+}
+.add-review, .reviews {
+  background-color: white;
+}
+@keyframes pulsate {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+      transform: scale(1.03);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.02);
+    }
+  }
+</style>

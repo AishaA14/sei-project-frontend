@@ -1,11 +1,13 @@
 <template>
     <body>
-        <div>
+        <div class="main-container">
         <!-- Top Navigation Section -->
         <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
+              <router-link to="/fruits" @click="$router.push({name: 'HomePage'})">
             <img src="@/assets/strawhatslogo.png" alt="Logo" style="width: 80px;">
+            </router-link>
             </a> The One Piece Orchard
             <button class="navbar-toggler" type="button" @click="toggleDropdown" style="color: white">
             Account
@@ -149,7 +151,7 @@ export default {
         box-sizing: border-box;
       }
 
-     body {
+     .main-container {
         margin: 0;
         padding: 0;
       }
@@ -157,6 +159,8 @@ export default {
     .navbar {
         background-color: black;
         color: white;
+        font-family: 'Michroma', sans-serif;
+        font-family: 'Yuji Hentaigana Akari', cursive;
     }
 
     .middle-section {

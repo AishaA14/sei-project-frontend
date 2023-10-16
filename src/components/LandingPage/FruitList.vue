@@ -4,7 +4,9 @@
    <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
+              <router-link to="/fruits" @click="$router.push({name: 'HomePage'})">
             <img src="@/assets/strawhatslogo.png" alt="Logo" style="width: 80px;">
+          </router-link>
             </a> The One Piece Orchard
             <button class="navbar-toggler" type="button" @click="toggleDropdown" style="color: white">
             Account
@@ -24,22 +26,32 @@
             </div>
         </div>
         </nav>
+        <!-- Text Section -->
+        <div class="container mt-4"> 
           <p><router-link v-if="isLoggedIn" to="/fruits/add">Add a new fruit to the collection</router-link></p>
-      
-    <h1>Browse through the collection</h1>
-    <div v-if="loading">
-      Loading...
-    </div>
-    <div v-else>
-      <div v-for="fruit in fruits" :key="fruit._id">
-        <div>
-          <h5>
-            <router-link :to="'/fruits/' + fruit._id">{{ fruit.name }}</router-link>
-          </h5>
+          <h1>Browse through the collection</h1>
+        </div>
+      <!-- Two-Column Layout -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Left Column: List of Fruits -->
+          <ul class="list-group">
+            <li class="list-group-item" v-for="fruit in fruits" :key="fruit._id">
+              <router-link :to="'/fruits/' + fruit._id" style="text-decoration: none; color: black">{{ fruit.name }}</router-link>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <!-- Right Column (Empty for now) -->
         </div>
       </div>
     </div>
-    <p v-if="error">{{ error }}</p>
+
+    <!-- Footer Section -->
+    <div class="footer">
+      &copy; StrawHats
+    </div>
   </div>
 </template>
 
@@ -75,8 +87,9 @@ export default {
     fetch(API_URL)
       .then((response) => response.json())
       .then((result) => {
-        this.fruits = result;
-        this.loading = false; // Set loading to false when data is received
+      // Sort the fruits array alphabetically by name
+      this.fruits = result.sort((a, b) => a.name.localeCompare(b.name));
+      this.loading = false; // Set loading to false when data is received
       })
       .catch((error) => {
         console.error('Error fetching fruits:', error);
@@ -105,9 +118,48 @@ export default {
 </script>
 
 <style scoped>
+/* New CSS styles for the fruit list page */
+.middle-section {
+  background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.middle-section h1 {
+  font-size: 2rem;
+  margin: 20px 0;
+}
 
+.fruits-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
+.fruits-list h5 {
+  font-size: 1.5rem;
+}
+.list-group-item {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.list-group-item:hover {
+  text-decoration: underline; 
+  font-size: 18px; 
+}
+.footer {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  color: #000;
+}
 
 
 </style>

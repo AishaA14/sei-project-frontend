@@ -3,6 +3,10 @@
     <h1>Edit "{{ fruit.name }}" fruit here</h1>
     <label for="editFruitName">Fruit Name:</label>
     <input type="text" v-model="fruit.name" name="editFruitName" id="editFruitName" placeholder="Fruit name">
+   
+    <label for="editCharacter">Character Name:</label>
+    <input type="text" v-model="fruit.character" name="editCharacter" id="editCharacter" placeholder="Character name">
+   
     <label for="editFruitType">Type:</label>
     <select v-model="fruit.type" name="editFruitType" id="editFruitType">
       <option value="Paramecia">Paramecia</option>
