@@ -122,7 +122,8 @@
       font-family: 'Croissant One', serif;
       min-height: 100vh; /* Set the minimum height to fill the viewport */
       margin: 0; /* Remove margin */
-      padding: 0; /* Remove padding */font-family: 'Young Serif', serif;
+      padding: 0; /* Remove padding */
+      font-family: 'Young Serif', serif;
       color: black;
         }
     .paramecia-intro {

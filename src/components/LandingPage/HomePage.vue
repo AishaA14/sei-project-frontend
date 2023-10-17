@@ -1,6 +1,5 @@
 <template>
-    <body>
-        <div class="main-container">
+      <div class="main-container">
         <!-- Top Navigation Section -->
         <nav class="navbar">
         <div class="container">
@@ -35,9 +34,18 @@
                 <p id="typewriter-text"></p>
                 <button v-if="textTypingFinished" class="button-pulsate"><router-link :to="'/fruits/list'">View Fruits</router-link></button>
             </div>
-            <div class="col-md-4"> Spotlight
-                <!-- <img src="@/assets/image3.png" alt="Image" class="img-fluid"> -->
+            <div class="col-md-4">
+                <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 200px;">
             </div>
+            </div>
+            <div class="quick-links">
+                <h4>Check Out The Different Fruit Types</h4>
+
+                <router-link :to="'/fruits/type/paramecia'" style="text-decoration: none;"> Paramecia Fruits</router-link>
+                <br>
+                <router-link :to="'/fruits/type/logia'" style="text-decoration: none;"> Logia Fruits</router-link>
+                <br>
+                <router-link :to="'/fruits/type/zoan'" style="text-decoration: none;"> Zoan Fruits</router-link>
             </div>
             <div class="row mt-4">
             <div class="col-md-6">
@@ -65,8 +73,7 @@
             &copy; Strawhats 2023
             </div>
         </footer>
-        </div>
-    </body>
+     </div>
   </template>
   
   <script>
@@ -101,17 +108,6 @@ export default {
     next();
   },
   methods: {
-    // handleLogoutConfirmation() {
-    //     if (confirm('Are you sure you want to log out?')) {
-    //       this.handleLogout()
-    //     }
-    //   },
-      // handleLogout: function () {
-      //           googleLogout()
-      //           this.$cookies.remove('user_session')
-      //           this.isLoggedIn = false
-      //           this.$router.push({ name: 'HomePage' })
-      //           },
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
     },
@@ -141,11 +137,6 @@ export default {
 };
 </script>
 
-  
-
-
-
-
   <style>
       * {
         box-sizing: border-box;
@@ -154,21 +145,31 @@ export default {
      .main-container {
         margin: 0;
         padding: 0;
+        height: 600px;
       }
 
     .navbar {
         background-color: black;
         color: white;
-        font-family: 'Michroma', sans-serif;
         font-family: 'Yuji Hentaigana Akari', cursive;
-    }
-
-    .middle-section {
+      }
+      
+      .middle-section {
         background-color: black ;
-        padding: 20px 0;
         text-align: center;
         color: white;
+        height: 660px;
     }
+        /* Align the columns at the bottom */
+      .col-md-6 {
+        margin-top: auto; /* Push the columns to the bottom */
+      }
+      .col-md-8 {
+        padding: 50px;
+      }
+      .quick-links {
+        margin: 50px;
+      }
     
     .footer {
         background-color: #f8f9fa;
