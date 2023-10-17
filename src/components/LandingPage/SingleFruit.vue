@@ -29,7 +29,7 @@
         </nav>
 
     <!-- Section 1: Fruit Data -->
-    <div class="fruit-card">
+    <div :class="['fruit-card', `${fruit.type.toLowerCase()}-gradient`]">
       <!-- <img src="@/assets/image2.png" alt="Fruit Image" class="fruit-image"> -->
       <div class="card-details">
       <h1>{{ fruit.name }}</h1>
@@ -244,13 +244,27 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+/* Logia background */
+  .logia-gradient {
+    background: linear-gradient(135deg, #FF2E2E, #70E1D7, #A600FF);
+  }
+
+  /* Zoan background */
+  .zoan-gradient {
+    background: linear-gradient(135deg, #FFFF00, #00FF00, #0000FF);
+  }
+
+  /* Paramecia background */
+  .paramecia-gradient {
+    background: linear-gradient(135deg, #FF5733, #FFC300, #FF3333);
+  }
 
 .fruit-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #FF6B6B, #70E1D7); /* Gradient background */
+  /* background: linear-gradient(135deg, #FF6B6B, #70E1D7); Gradient background */
   border: 7px solid #df8918;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);

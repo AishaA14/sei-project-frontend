@@ -41,19 +41,19 @@
             </div>
             <div class="row mt-4">
             <div class="col-md-6">
-                <h3>Latest News</h3>
+                <h3>Most Popular</h3>
                 <ul>
-                <li>Placeholder for latest news item 1.</li>
-                <li>Placeholder for latest news item 2.</li>
-                <li>Placeholder for latest news item 3.</li>
+                <li>Devil Fruits used by the strawhats.</li>
+                <li>Devil Fruits used by the Yonko.</li>
+                <li>Devil Fruits used by marine admirals and vice admirals.</li>
                 </ul>
             </div>
             <div class="col-md-6">
                 <h3>Top Rated Devil Fruits</h3>
                 <ul>
-                <li>Placeholder for upcoming event 1.</li>
-                <li>Placeholder for upcoming event 2.</li>
-                <li>Placeholder for upcoming event 3.</li>
+                <li>Placeholder 1.</li>
+                <li>Placeholder 2.</li>
+                <li>Placeholder 3.</li>
                 </ul>
             </div>
             </div>
@@ -62,7 +62,7 @@
         <!-- Footer Section -->
         <footer class="footer">
             <div class="container">
-            &copy; StrawHats
+            &copy; Strawhats 2023
             </div>
         </footer>
         </div>

@@ -31,22 +31,23 @@
           <p><router-link v-if="isLoggedIn" to="/fruits/add">Add a new fruit to the collection</router-link></p>
           <h1>Browse through the collection</h1>
         </div>
-      <!-- Two-Column Layout -->
-    <div class="container mt-4">
-      <div class="row">
-        <div class="col-md-6">
-          <!-- Left Column: List of Fruits -->
-          <ul class="list-group">
-            <li class="list-group-item" v-for="fruit in fruits" :key="fruit._id">
-              <router-link :to="'/fruits/' + fruit._id" style="text-decoration: none; color: black">{{ fruit.name }}</router-link>
-            </li>
-          </ul>
+     
+        <!-- Two-Column Layout -->
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-6" v-if="!loading">
+              <!-- Left Column: List of Fruits -->
+              <ul class="list-group">
+                <li class="list-group-item" v-for="fruit in fruits" :key="fruit._id">
+                  <router-link :to="'/fruits/' + fruit._id" style="text-decoration: none; color: black">{{ fruit.name }}</router-link>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              Quick View
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <!-- Right Column (Empty for now) -->
-        </div>
-      </div>
-    </div>
 
     <!-- Footer Section -->
     <div class="footer">
