@@ -209,7 +209,7 @@ export default {
 
     #typewriter-text {
         color: orange;
-        font-size: 25px;
+        font-size: 20px;
     }
 
 

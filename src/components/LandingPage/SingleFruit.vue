@@ -36,9 +36,9 @@
         <h1>{{ fruit.name }}</h1>
         <div>
           <h2>Type:</h2>
-          <router-link v-if="fruit.type === 'Paramecia'" :to="'/fruits/type/paramecia'">Paramecia</router-link>
-          <router-link v-if="fruit.type === 'Logia'" :to="'/fruits/type/logia'">Logia</router-link>
-          <router-link v-if="fruit.type === 'Zoan'" :to="'/fruits/type/zoan'">Zoan</router-link>
+          <router-link v-if="fruit.type === 'Paramecia'" :to="'/fruits/type/paramecia'" style="text-decoration: none; font-size: 30px;">Paramecia</router-link>
+          <router-link v-if="fruit.type === 'Logia'" :to="'/fruits/type/logia'" style="text-decoration: none; font-size: 30px;">Logia</router-link>
+          <router-link v-if="fruit.type === 'Zoan'" :to="'/fruits/type/zoan'" style="text-decoration: none; font-size: 30px;">Zoan</router-link>
         </div>
         <h2>Character: {{ fruit.character }}</h2>
         <p>Abilities: {{ fruit.abilities }}</p>
