@@ -233,7 +233,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
 
 body {
   background-color: black;
@@ -289,7 +289,6 @@ body {
 
 .card-details {
   color: #000000; /* White text */
-  font-family: 'Michroma', sans-serif;
   font-family: 'Young Serif', serif;
 }
 

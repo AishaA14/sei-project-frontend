@@ -42,7 +42,7 @@
    <div class="zoan-list">
       <h2>List of Zoan Type Fruits in the Collection</h2>
       <!-- Display Zoan type fruits as sorted cards -->
-      <div class="fruit-card" v-for="fruit in sortedZoanFruits" :key="fruit._id">
+      <div class="tiny-card" v-for="fruit in sortedZoanFruits" :key="fruit._id">
         <router-link :to="'/fruits/' + fruit._id" class="fruit-link">
           <div class="fruit-name">{{ fruit.name }}</div>
           <div class="character-name">{{ fruit.character }}</div>
@@ -130,7 +130,7 @@
       padding-left: 150px;
       padding-right: 150px;
     }
-    .fruit-card {
+    .tiny-card {
     display: inline-block;
     margin: 10px;
     padding: 10px;

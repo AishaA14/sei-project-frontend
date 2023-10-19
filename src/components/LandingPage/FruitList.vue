@@ -6,7 +6,7 @@
             <a class="navbar-brand" href="#">
               <router-link to="/fruits" @click="$router.push({name: 'HomePage'})">
             <img src="@/assets/strawhatslogo.png" alt="Logo" style="width: 80px;">
-          </router-link>
+            </router-link>
             </a> The One Piece Orchard
             <button class="navbar-toggler" type="button" @click="toggleDropdown" style="color: white">
             Account
@@ -25,29 +25,36 @@
             </ul>
             </div>
         </div>
-        </nav>
+  </nav>
         <!-- Text Section -->
-        <div class="container mt-4"> 
-          <p><router-link v-if="isLoggedIn" to="/fruits/add">Add a new fruit to the collection</router-link></p>
-          <h1>Browse through the collection</h1>
+        <div class="middle">
+          <div class="container mt-4">
+            <p style="font-size: 20px; color:white;">
+          <router-link v-if="isLoggedIn" to="/fruits/add">Add a new fruit to the collection</router-link>
+          <router-link v-else to="/user/login">Login to add a new fruit to the collection</router-link>
+        </p>
+          <h1 style="font-size: 30px; color: white;">Browse through the collection</h1>
         </div>
-     
-        <!-- Two-Column Layout -->
+        <input
+            type="text"
+            v-model="searchQuery"
+            placeholder="Search by character or fruit name" style="width: 300px;"
+          />
+        <!-- Display Fruits as Cards -->
         <div class="container mt-4">
-          <div class="row">
-            <div class="col-md-6" v-if="!loading">
-              <!-- Left Column: List of Fruits -->
-              <ul class="list-group">
-                <li class="list-group-item" v-for="fruit in fruits" :key="fruit._id">
-                  <router-link :to="'/fruits/' + fruit._id" style="text-decoration: none; color: black">{{ fruit.name }}</router-link>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              Quick View
-            </div>
+        <div class="fruit-gallery">
+          <div class="small-card" v-for="fruit in filteredFruits" :key="fruit._id" :class="`${fruit.type.toLowerCase()}-gradient`">
+            <p v-if="filteredFruits.length === 0">Can't find any matching fruits or characters.</p>
+
+            <router-link :to="'/fruits/' + fruit._id" style="text-decoration: none; color: black">
+              <h3>{{ fruit.name }}</h3>
+              <p>Type: {{ fruit.type }}</p>
+              <p>Character: {{ fruit.character }}</p>
+            </router-link>
           </div>
         </div>
+      </div>
+    </div>
 
     <!-- Footer Section -->
     <div class="footer">
@@ -68,9 +75,19 @@ export default {
       error: '',
       fruits: [],
       isLoggedIn: false, // Add a data property to track user's login status
-      isDropdownOpen: false
+      isDropdownOpen: false,
+      searchQuery: '',
     };
   },
+  computed: {
+  filteredFruits() {
+    const query = new RegExp(this.searchQuery, "i"); // "i" for case-insensitive search
+    return this.fruits.filter(
+      (fruit) =>
+        query.test(fruit.character) || query.test(fruit.name)
+    );
+  },
+},
   beforeRouteEnter(to, from, next) {
     const { cookies } = useCookies();
     const userSession = cookies.get('user_session');
@@ -120,7 +137,7 @@ export default {
 
 <style scoped>
 /* New CSS styles for the fruit list page */
-.middle-section {
+/* .middle-section {
   background-color: #000;
   padding: 20px 0;
   text-align: center;
@@ -128,27 +145,47 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 25px;
 }
 
 .middle-section h1 {
   font-size: 2rem;
   margin: 20px 0;
-}
+} */
 
-.fruits-list {
+.middle {
+  background-color: black;
+}
+.fruit-gallery {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust this to control spacing between cards */
 }
 
-.fruits-list h5 {
-  font-size: 1.5rem;
+.small-card {
+  flex-basis: calc(20% - 10px); /* Adjust width and spacing */
+  border: 1px solid #df8918;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  min-height: 200px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Young Serif', serif;
 }
+
+.small-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(236, 150, 70, 0.849);
+}
+
 .list-group-item {
   text-decoration: none;
   cursor: pointer;
   color: black;
+  
 }
 
 .list-group-item:hover {

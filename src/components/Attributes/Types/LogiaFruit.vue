@@ -47,7 +47,7 @@
    <div class="logia-list">
       <h2>List of Logia Type Fruits in the Collection</h2>
       <!-- Display Logia type fruits as sorted cards -->
-      <div class="fruit-card" v-for="fruit in sortedLogiaFruits" :key="fruit._id">
+      <div class="tiny-card" v-for="fruit in sortedLogiaFruits" :key="fruit._id">
         <router-link :to="'/fruits/' + fruit._id" class="fruit-link">
           <div class="fruit-name">{{ fruit.name }}</div>
           <div class="character-name">{{ fruit.character }}</div>
@@ -135,14 +135,14 @@
       padding-left: 150px;
       padding-right: 150px;
     }
-    .fruit-card {
+    .tiny-card {
     display: inline-block;
     margin: 10px;
     padding: 10px;
     background-color: #FFFFFF;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
-    width: 200px; /* Adjust the card width as needed */
+    width: 200px; 
     text-align: center;
   }
 

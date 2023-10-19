@@ -35,7 +35,7 @@
                 <button v-if="textTypingFinished" class="button-pulsate"><router-link :to="'/fruits/list'">View Fruits</router-link></button>
             </div>
             <div class="col-md-4">
-                <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 200px;">
+                <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 250px; border-radius: 10%;">
             </div>
             </div>
             <div class="quick-links">
@@ -47,7 +47,7 @@
                 <br>
                 <router-link :to="'/fruits/type/zoan'" style="text-decoration: none;"> Zoan Fruits</router-link>
             </div>
-            <div class="row mt-4">
+            <!-- <div class="row mt-4">
             <div class="col-md-6">
                 <h3>Most Popular</h3>
                 <ul>
@@ -64,7 +64,7 @@
                 <li>Placeholder 3.</li>
                 </ul>
             </div>
-            </div>
+            </div> -->
         </div>
         </div>
         <!-- Footer Section -->
@@ -113,9 +113,9 @@ export default {
     },
   },
   mounted() {
-    // Typewriter effect
+    // Typewriter effectt
     const text =
-      "Devil fruits are mysterious and powerful fruits that grant those who consume them special abilities. However .  .  .  this power comes at great cost to those who wish to rule the seas.  .  .  .  The user loses their ability to swim.  .  .  .  .  They become an anchor in the ocean. Check out all the weird and wonderful devil fruits we have collected so far. Down below";
+      "Devil Fruits are mysterious and powerful fruits that grant those who consume them special abilities. They are central to the world of One Piece and over 200 have appeared in the manga and anime. The One Piece Orchard aims to collect all of them and store them here for curious fans. Create an account to contribute fruits you've spotted, to the orchard.  Check out all the weird and wonderful devil fruits we have collected so far. Down below";
     let i = 0;
     const speed = 30;
 
@@ -147,7 +147,9 @@ export default {
         padding: 0;
         height: 600px;
       }
-
+      .container {
+        font-size: 30px;
+      }
     .navbar {
         background-color: black;
         color: white;
@@ -169,6 +171,7 @@ export default {
       }
       .quick-links {
         margin: 50px;
+        font-size: 25px;
       }
     
     .footer {
@@ -179,6 +182,7 @@ export default {
 
     #typewriter-text {
         color: orange;
+        font-size: 25px;
     }
 
 
@@ -186,7 +190,7 @@ export default {
     .button-pulsate {
     padding: 10px 20px;
     border: none;
-    border-radius: 50px; /* Make it rounded */
+    border-radius: 40px; /* Make it rounded */
     color: white;
     background-color: #33ccff; /* Neon color */
     font-size: 12px;

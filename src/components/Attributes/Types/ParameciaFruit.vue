@@ -42,9 +42,9 @@
    <!-- Section 2: List of Paramecia Fruits -->
    <div class="paramecia-list">
       <h2>List of Paramecia Type Fruits in the Collection</h2>
-      <!-- Display Paramecia type fruits as sorted cards -->
-      <div class="fruit-card" v-for="fruit in sortedParameciaFruits" :key="fruit._id">
-        <router-link :to="'/fruits/' + fruit._id" class="fruit-link">
+      <!-- Display Paramecia type fruits as sorted tiny rectangular-shaped cards -->
+      <div class="tiny-card" v-for="fruit in sortedParameciaFruits" :key="fruit._id">
+        <router-link :to="'/fruits/' + fruit._id" class="fruit-link" style="text-decoration: none; color: black;">
           <div class="fruit-name">{{ fruit.name }}</div>
           <div class="character-name">{{ fruit.character }}</div>
         </router-link>
@@ -99,12 +99,12 @@
       try {
         const response = await fetch(`${process.env.VUE_APP_BACKEND_URL}/fruits/type/paramecia`);
         if (!response.ok) {
-          throw new Error('Failed to fetch Paramecia fruits')
+          throw new Error('Failed to fetch Paramecia fruits');
         }
-        const data = await response.json()
-        this.parameciaFruits = data
+        const data = await response.json();
+        this.parameciaFruits = data;
       } catch (error) {
-        console.error('Error fetching Paramecia fruits:', error)
+        console.error('Error fetching Paramecia fruits:', error);
       }
     },
     toggleDropdown() {
@@ -125,31 +125,33 @@
       padding: 0; /* Remove padding */
       font-family: 'Young Serif', serif;
       color: black;
-        }
+    }
+    
     .paramecia-intro {
       text-align: center;
       padding-top: 50px;
       padding-left: 200px;
       padding-right: 200px;
     }
-    .fruit-card {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    background-color: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    border-radius: 5px;
-    width: 200px; /* Adjust the card width as needed */
-    text-align: center;
-  }
+    
+    .tiny-card {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px;
+        background-color: #FFFFFF;
+        border: 1px solid #CCCCCC;
+        border-radius: 5px;
+        width: 200px; /* Adjust the card width as needed */
+        height: 80px; /* Adjust the card height as needed */
+        text-align: center;
+    }
 
-  .fruit-link {
-    text-decoration: none;
-    color: #333333;
-  }
+    .tiny-card-link {
+        text-decoration: none;
+        color: #333333;
+    }
 
-  .fruit-name {
-    font-weight: bold;
-  }
-
-  </style>
+    .tiny-card-name {
+        font-weight: bold;
+    }
+</style>
