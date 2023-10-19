@@ -32,15 +32,21 @@
       <h1>Logia Type Fruits</h1>
       <h4>What are Logia Fruits?</h4>
       <p>
-    Logia fruits are a category of Devil Fruits known for their extraordinary abilities. They are among the three primary categories of Devil Fruits in the One Piece world, alongside Paramecia and Zoan fruits.
+      Logia fruits are a category of Devil Fruits known for their extraordinary abilities. They are among the three primary categories of Devil Fruits in the One Piece world, alongside Paramecia and Zoan fruits.
+        <br>
+        <br>
+      Logia fruits bestow their users with incredible versatility and often grant the power to control and manipulate natural elements.
       <br>
       <br>
-    Logia fruits bestow their users with incredible versatility and often grant the power to control and manipulate natural elements.
-    <br>
-    <br>
-    Users of Logia fruits can harness these elements for various purposes, making them formidable and elusive opponents. One of the distinguishing features of Logia fruit users is their ability to transform their bodies into the element they control, granting them near-invulnerability and the capacity to launch devastating attacks.
+      Users of Logia fruits can harness these elements for various purposes, making them formidable and elusive opponents. One of the distinguishing features of Logia fruit users is their ability to transform their bodies into the element they control, granting them near-invulnerability and the capacity to launch devastating attacks.
 
-  </p>
+      </p>
+    </div>
+    <div>
+      <img src="@/assets/image7.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image18.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image19.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image21.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
     </div>
 
    <!-- Section 2: List of Logia Fruits -->

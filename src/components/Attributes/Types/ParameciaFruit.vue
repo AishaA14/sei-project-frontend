@@ -38,7 +38,11 @@
       </p>
       <!-- You can add more information about Paramecia fruits here -->
     </div>
-
+    <div>
+      <img src="@/assets/image16.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image20.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image8.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+    </div>
    <!-- Section 2: List of Paramecia Fruits -->
    <div class="paramecia-list">
       <h2>List of Paramecia Type Fruits in the Collection</h2>

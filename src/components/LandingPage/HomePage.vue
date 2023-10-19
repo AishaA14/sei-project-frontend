@@ -32,10 +32,20 @@
             <div class="row">
             <div class="col-md-8">
               <p id="typewriter-text"></p>
-              <button v-if="textTypingFinished" @click="startAudio" class="button-pulsate"><router-link :to="'/fruits/list'">View Fruits</router-link></button>
+              <button v-if="textTypingFinished" @click="startAudio" class="button-pulsate"><router-link :to="'/fruits/list'" style="text-decoration: none; color: black; font-size: 20px;">View Fruits</router-link></button>
             </div>
             <div class="col-md-4">
-              <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 250px; border-radius: 10%;">
+              
+              <img src="@/assets/image2.png" alt="Image" class="img-fluid" style="width: 100px; border-radius: 10%;">
+              <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 150px; border-radius: 10%;">
+              <img src="@/assets/image4.png" alt="Image" class="img-fluid" style="width: 150px; border-radius: 10%;">
+              <img src="@/assets/image5.png" alt="Image" class="img-fluid" style="width: 110px; border-radius: 10%;">
+              <img src="@/assets/image6.png" alt="Image" class="img-fluid" style="width: 100px; border-radius: 10%;">
+              <img src="@/assets/image8.png" alt="Image" class="img-fluid" style="width: 100px; border-radius: 10%;">
+              <img src="@/assets/image9.png" alt="Image" class="img-fluid" style="width: 100px; border-radius: 10%;">
+              <img src="@/assets/image10.png" alt="Image" class="img-fluid" style="width: 100px; border-radius: 10%;">
+              <img src="@/assets/image11.png" alt="Image" class="img-fluid" style="width: 100px; border-radius: 10%;">
+              <img src="@/assets/image14.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
             </div>
           </div>
             <div class="quick-links" >
@@ -176,6 +186,8 @@ export default {
         text-align: center;
         color: white;
         height: 660px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 1000;
     }
         /* Align the columns at the bottom */
       .col-md-6 {

@@ -37,7 +37,12 @@
         Zoan fruits are known for their versatility, enabling users to adapt to various situations and challenges. Whether it's taking on the characteristics of a mighty beast, soaring through the skies as a majestic bird, or unleashing the agility of a cunning predator, Zoan fruits provide an array of skills and strengths.
       </p>
     </div>
-
+    <div>
+      <img src="@/assets/image13.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image12.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image17.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+      <img src="@/assets/image15.png" alt="Image" class="img-fluid" style="width: 80px; border-radius: 10%;">
+    </div>
    <!-- Section 2: List of Zoan Fruits -->
    <div class="zoan-list">
       <h2>List of Zoan Type Fruits in the Collection</h2>
