@@ -31,13 +31,13 @@
         <div class="container">
             <div class="row">
             <div class="col-md-8">
-                <p id="typewriter-text"></p>
-                <button v-if="textTypingFinished" class="button-pulsate"><router-link :to="'/fruits/list'">View Fruits</router-link></button>
+              <p id="typewriter-text"></p>
+              <button v-if="textTypingFinished" @click="startAudio" class="button-pulsate"><router-link :to="'/fruits/list'">View Fruits</router-link></button>
             </div>
             <div class="col-md-4">
-                <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 250px; border-radius: 10%;">
+              <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 250px; border-radius: 10%;">
             </div>
-            </div>
+          </div>
             <div class="quick-links" >
                 <h4>Check Out The Different Fruit Types</h4>
 
@@ -89,6 +89,7 @@ export default {
       isDropdownOpen: false,
       textTypingFinished: false,
       typeWriterTimer: null, // Store the timer ID
+      showWelcomeModal: true, // Show the welcome modal initially
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -112,6 +113,18 @@ export default {
   methods: {
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen;
+    },
+      startAudio() {
+      // Hide the welcome modal
+      this.showWelcomeModal = false;
+
+      // Start audio playback
+      const audio = new Audio();
+      audio.src = require('@/assets/background-audio.mp3');
+      audio.loop = true;
+      audio.play().catch(error => {
+        console.error('Audio playback error:', error);
+      });
     },
   },
   mounted() {
