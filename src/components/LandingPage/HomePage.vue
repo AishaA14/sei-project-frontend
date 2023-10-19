@@ -38,7 +38,7 @@
                 <img src="@/assets/image3.png" alt="Image" class="img-fluid" style="width: 250px; border-radius: 10%;">
             </div>
             </div>
-            <div class="quick-links">
+            <div class="quick-links" >
                 <h4>Check Out The Different Fruit Types</h4>
 
                 <router-link :to="'/fruits/type/paramecia'" style="text-decoration: none;"> Paramecia Fruits</router-link>
@@ -46,6 +46,8 @@
                 <router-link :to="'/fruits/type/logia'" style="text-decoration: none;"> Logia Fruits</router-link>
                 <br>
                 <router-link :to="'/fruits/type/zoan'" style="text-decoration: none;"> Zoan Fruits</router-link>
+                <br>
+                <router-link :to="'/fruits/list'" style="text-decoration: none;">Fruit List</router-link>
             </div>
             <!-- <div class="row mt-4">
             <div class="col-md-6">
@@ -157,7 +159,7 @@ export default {
       }
       
       .middle-section {
-        background-color: black ;
+        background: linear-gradient(90deg, black, #000080);
         text-align: center;
         color: white;
         height: 660px;

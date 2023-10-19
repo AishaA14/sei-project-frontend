@@ -29,25 +29,28 @@
         </nav>
 
     <!-- Section 1: Fruit Data -->
+  <div class="middle-section">
     <div :class="['fruit-card', `${fruit.type.toLowerCase()}-gradient`]">
       <!-- <img src="@/assets/image2.png" alt="Fruit Image" class="fruit-image"> -->
       <div class="card-details">
-      <h1>{{ fruit.name }}</h1>
-      <div>
-        <h2>Type:</h2>
-        <router-link v-if="fruit.type === 'Paramecia'" :to="'/fruits/type/paramecia'">Paramecia</router-link>
-        <router-link v-if="fruit.type === 'Logia'" :to="'/fruits/type/logia'">Logia</router-link>
-        <router-link v-if="fruit.type === 'Zoan'" :to="'/fruits/type/zoan'">Zoan</router-link>
-      </div>
-      <h2>Character: {{ fruit.character }}</h2>
-      <p>Abilities: {{ fruit.abilities }}</p>
+        <h1>{{ fruit.name }}</h1>
+        <div>
+          <h2>Type:</h2>
+          <router-link v-if="fruit.type === 'Paramecia'" :to="'/fruits/type/paramecia'">Paramecia</router-link>
+          <router-link v-if="fruit.type === 'Logia'" :to="'/fruits/type/logia'">Logia</router-link>
+          <router-link v-if="fruit.type === 'Zoan'" :to="'/fruits/type/zoan'">Zoan</router-link>
+        </div>
+        <h2>Character: {{ fruit.character }}</h2>
+        <p>Abilities: {{ fruit.abilities }}</p>
       </div>
     </div>
-
+    
     <!-- Section 2: Delete and Edit Options -->
-    <div class="delete-edit-options" v-if="isLoggedIn">
+    <div class="delete-edit-favourite-options" v-if="isLoggedIn">
       <button @click="deleteFruit" class="action-button">Delete this fruit from your collection</button>
       <button @click="editFruit" class="action-button">Edit this fruit</button>
+      <button @click="toggleFavourite(fruit)" class="action-button">Add to favourites</button>
+    </div>
     </div>
 
     <!-- Section 3: Display Reviews -->
@@ -70,7 +73,7 @@
       <label for="comment">Comment:</label>
       <textarea v-model="reviewData.comment" name="comment" id="comment" rows="4" cols="50"></textarea>
 
-      <button @click="addReview">Submit Review</button>
+      <button class="btn btn-secondary" @click="addReview">Submit Review</button>
     </div>
 
     <!-- Footer Section -->
@@ -110,7 +113,9 @@ export default {
         comment: '',
         user: ''
       },
-      reviews: [] // Initialize the reviews array
+      reviews: [], // Initialize the reviews array
+      favouriteFruits: [],
+      favourite: false
     };
     },
   beforeRouteEnter(to, from, next) {
@@ -186,6 +191,17 @@ export default {
         name: 'EditFruit',
         params: { id: this.fruit._id },
       });
+    },
+    toggleFavourite(fruit) {
+      const index = this.favouriteFruits.findIndex((fav) => fav._id === fruit._id);
+
+      if (index === -1) {
+        // Fruit is not in favourites, add it
+        this.favouriteFruits.push(fruit);
+      } else {
+        // Fruit is already in favourites, remove it
+        this.favouriteFruits.splice(index, 1);
+      }
     },
     
     async addReview() {
@@ -269,7 +285,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  margin: 20px auto;
+  margin: 0 auto;
   max-width: 400px;
   padding: 20px;
   text-align: center;
@@ -308,6 +324,13 @@ body {
 }
 .add-review, .reviews {
   background-color: white;
+}
+.action-button{
+  font-size: 20px;
+  margin: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 1000;
+  color: black;
 }
 @keyframes pulsate {
     0% {

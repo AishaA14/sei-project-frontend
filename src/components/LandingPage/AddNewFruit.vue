@@ -29,30 +29,45 @@
     </nav>
 
     <!-- Add New Fruit Section -->
-    <div class="add-fruit-container">
-      <h1>Add a New Devil Fruit to the Collection</h1>
-      <div class="add-fruit-form">
-        <label for="name">Name:</label>
-        <input type="text" v-model="fruitData.name" name="name" id="name" placeholder="Name of the Devil Fruit">
-        
-        <label for="type">Type:</label>
-        <select v-model="fruitData.type" name="type" id="type">
-          <option value="Paramecia">Paramecia</option>
-          <option value="Logia">Logia</option>
-          <option value="Zoan">Zoan</option>
-          <!-- <option value="MythicalZoan">Mythical Zoan</option> -->
-        </select>
-        
-        <label for="character">Character:</label>
-        <input type="text" v-model="fruitData.character" name="character" id="character" placeholder="User of the Devil Fruit">
-        
-        <label for="abilities">Abilities:</label>
-        <input type="text" v-model="fruitData.abilities" name="abilities" id="abilities" placeholder="Abilities of the Devil Fruit">
+     <!-- Add New Fruit Section -->
+<div class="middle-section">
+  <div class="add-fruit-container">
+    <h1>Add a New Devil Fruit to the Collection</h1>
 
-        <button @click="addNewFruit">Submit</button>
-      </div>
-      <p v-if="error">{{ error }}</p>
-      <p v-if="success">{{ success }}</p>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" v-model="fruitData.name" class="form-control" id="name" placeholder="Name of the Devil Fruit">
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type:</label>
+      <select v-model="fruitData.type" class="form-control" id="type">
+        <option value="Paramecia">Paramecia</option>
+        <option value="Logia">Logia</option>
+        <option value="Zoan">Zoan</option>
+        <!-- <option value="MythicalZoan">Mythical Zoan</option> -->
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="character">Character:</label>
+      <input type="text" v-model="fruitData.character" class="form-control" id="character" placeholder="User of the Devil Fruit">
+    </div>
+
+    <div class="form-group">
+      <label for="abilities">Abilities:</label>
+      <input type="text" v-model="fruitData.abilities" class="form-control" id="abilities" placeholder="Abilities of the Devil Fruit">
+    </div>
+
+    <button @click="addNewFruit" class="btn btn-primary">Submit</button>
+    <p v-if="error">{{ error }}</p>
+    <p v-if="success">{{ success }}</p>
+  </div>
+</div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+      &copy; StrawHats
     </div>
   </div>
 </template>
@@ -145,3 +160,38 @@ export default {
   },
 };
 </script>
+
+<style>
+.middle-section {
+  background-color: black;
+}
+.add-fruit-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #62c8a8;
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  height: 500px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  display: block;
+  width: 200px;
+  align-content: center;
+}
+</style>
