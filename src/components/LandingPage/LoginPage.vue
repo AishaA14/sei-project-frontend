@@ -13,7 +13,6 @@
 
 <script>
  import { decodeCredential, googleLogout } from 'vue3-google-login'
- const API_URL = process.env.VUE_APP_BACKEND_URL + '/user/login'
  export default {
     name: 'LoginPage',
     data: () => ({
@@ -39,7 +38,7 @@
                 console.log(userData)
                 this.userName = userData.given_name
                 this.$cookies.set('user_session', response.credential)
-                fetch(API_URL, {
+                fetch('http://localhost:4000/user/login', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',
