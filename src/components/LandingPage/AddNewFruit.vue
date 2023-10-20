@@ -28,7 +28,6 @@
       </div>
     </nav>
 
-    <!-- Add New Fruit Section -->
      <!-- Add New Fruit Section -->
 <div class="middle-section">
   <div class="add-fruit-container">

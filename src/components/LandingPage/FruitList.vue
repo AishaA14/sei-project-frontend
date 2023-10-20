@@ -116,17 +116,6 @@ export default {
       });
   },
   methods: {
-    // handleLogoutConfirmation() {
-    //     if (confirm('Are you sure you want to log out?')) {
-    //       this.handleLogout
-    //     }
-    //   },
-    //   handleLogout: function () {
-    //             googleLogout()
-    //             this.$cookies.remove('user_session')
-    //             this.isLoggedIn = false
-    //             this.$router.push({ name: 'HomePage' })
-    //             },
 
       toggleDropdown() {
         this.isDropdownOpen = !this.isDropdownOpen;

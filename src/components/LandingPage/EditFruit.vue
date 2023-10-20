@@ -85,6 +85,7 @@ export default {
       },
       isLoggedIn: false, // Add a data property to track user's login status
       isDropdownOpen: false,
+      userData: {}
     }
   },
   mounted() {
@@ -93,9 +94,8 @@ export default {
     const userSession = cookies.get('user_session');
 
     if (userSession) {
-      const userData = decodeCredential(userSession);
+      this.userData = decodeCredential(userSession);
       this.isLoggedIn = true;
-      this.fruit.user = userData.email;
     }
 
     try {
@@ -121,8 +121,7 @@ export default {
         name: this.fruit.name,
         type: this.fruit.type,
         character: this.fruit.character,
-        user: this.fruit.user,
-        loggedInUser: '',
+        // loggedInUser: this.userData.email,
         abilities: this.fruit.abilities,
       };
       

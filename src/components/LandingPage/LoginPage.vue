@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Log into your account here</h1>
+        <h1></h1>
         <div v-if="isLoggedIn">
         <h2>Hello {{ userName }}</h2>
         <button @click="handleLogOut">Log Out</button>
@@ -13,6 +13,7 @@
 
 <script>
  import { decodeCredential, googleLogout } from 'vue3-google-login'
+ const API_URL = process.env.VUE_APP_BACKEND_URL + '/user/login'
  export default {
     name: 'LoginPage',
     data: () => ({
@@ -38,7 +39,7 @@
                 console.log(userData)
                 this.userName = userData.given_name
                 this.$cookies.set('user_session', response.credential)
-                fetch('http://localhost:4000/user/login', {
+                fetch(API_URL, {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json',

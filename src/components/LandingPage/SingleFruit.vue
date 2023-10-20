@@ -113,7 +113,11 @@ export default {
         comment: '',
         user: ''
       },
-      reviews: [], // Initialize the reviews array
+      reviews: [{
+      '_id': 'gthgtg',
+      'rating': 5,
+      'comment': 'fsfdsf'
+      }], // Initialize the reviews array
       favouriteFruits: [],
       favourite: false
     };
@@ -158,9 +162,9 @@ export default {
           }
           return response.json();
         })
-        .then((reviews) => {
-          this.reviews = reviews;
-          console.log('Reviews:', this.reviews);
+        .then((response) => {
+          this.reviews = response.reviews;
+          console.log('Reviews:', JSON.stringify(this.reviews));
         })
         .catch((error) => {
           console.error('Error fetching reviews:', error);
