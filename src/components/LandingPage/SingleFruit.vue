@@ -30,6 +30,7 @@
 
     <!-- Section 1: Fruit Data -->
   <div class="middle-section">
+    <!-- dynamically assign class based on fruit type -->
     <div :class="['fruit-card', `${fruit.type.toLowerCase()}-gradient`]">
       <!-- <img src="@/assets/image2.png" alt="Fruit Image" class="fruit-image"> -->
       <div class="card-details">
@@ -328,7 +329,35 @@ body {
 }
 .add-review, .reviews {
   background-color: white;
+  font-family: 'Raleway', sans-serif;
 }
+.reviews {
+  font-size: 16px;
+  line-height: 1.4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+}
+.reviews li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.reviews li:hover {
+    background-color: #f0f0f0;
+}
+
+.reviews h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.reviews p strong {
+    font-weight: bold;
+}
+
 .action-button{
   font-size: 20px;
   margin: 20px;

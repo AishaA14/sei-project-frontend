@@ -32,7 +32,7 @@
             <div class="row">
             <div class="col-md-8">
               <p id="typewriter-text"></p>
-              <button v-if="textTypingFinished" @click="startAudio" class="button-pulsate"><router-link :to="'/fruits/list'" style="text-decoration: none; color: black; font-size: 20px;">View Fruits</router-link></button>
+              <button v-if="textTypingFinished" class="button-pulsate"><router-link :to="'/fruits/list'" style="text-decoration: none; color: black; font-size: 20px;">View Fruits</router-link></button>
             </div>
             <div class="col-md-4">
               
@@ -99,7 +99,7 @@ export default {
       isDropdownOpen: false,
       textTypingFinished: false,
       typeWriterTimer: null, // Store the timer ID
-      showWelcomeModal: true, // Show the welcome modal initially
+      // showWelcomeModal: true, // Show the welcome modal initially
     };
   },
   beforeRouteEnter(to, from, next) {
@@ -126,7 +126,7 @@ export default {
     },
       startAudio() {
       // Hide the welcome modal
-      this.showWelcomeModal = false;
+      // this.showWelcomeModal = false;
 
       // Start audio playback
       const audio = new Audio();
@@ -142,14 +142,13 @@ export default {
     const text =
       "Devil Fruits are mysterious and powerful fruits that grant those who consume them special abilities. They are central to the world of One Piece and over 200 have appeared in the manga and anime. The One Piece Orchard aims to collect all of them and store them here for curious fans. Create an account to contribute fruits you've spotted, to the orchard.  Check out all the weird and wonderful devil fruits we have collected so far. Down below";
     let i = 0;
-    const speed = 30;
+    const speed = 30; // Each character is typed with a delay of 30 milliseconds
 
     const typeWriter = () => {
-      console.log('hello')
-      if (i < text.length) {
+      if (i < text.length) { // Carry on typing till the text is finished
         document.getElementById("typewriter-text").innerHTML += text.charAt(i);
-        i++;
-        this.typeWriterTimer = setTimeout(typeWriter, speed);
+        i++; //appends the next character from the text into the html typewriter-text id
+        this.typeWriterTimer = setTimeout(typeWriter, speed); // calls the function again after each 30ms delay
       } else {
         // Typing has finished, set to true
         this.textTypingFinished = true;
