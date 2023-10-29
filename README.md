@@ -35,9 +35,9 @@ This is the frontend code for The One Piece Orchard, a web application that serv
 
 ## Deployment Link
 
-[Play the Game](https://aishaa14.github.io/snake_project/snake.html)
+[Check out the website](https://the-one-piece-orchard.netlify.app/fruits)
 
-Include a link to a live demo of your game (if available) or a video/gif showcasing gameplay.
+To be able add entries or make edits, click the account tab and click on login to login with google.
 
 ## Features
 
@@ -65,158 +65,59 @@ git clone https://github.com/AishaA14/snake_project.git
 ```
 ## Timeframe & Working Team
 
-I worked independently on this project. I developed this Snake Game over the course of one week.
+This project was completed within a week, working independently. 
 
 ## Technologies Used
 
-HTML
-CSS
-JavaScript
+Frontend: Vue.js
+Backend: Node.js, Express.js
+Database: MongoDB
+Version Control: Git
+Development Tools: Visual Studio Code, Postman.
 
 ## Brief
 
-This project was developed as part of my coding bootcamp curriculum. The objective was to create a classic Snake game using HTML, CSS, and JavaScript. The game allows a player to control a snake, guiding it to eat food and grow longer while avoiding collisions with the walls and itself.
+This project was developed as part of my coding bootcamp curriculum. The project's goal was to create a user-friendly online library where fans could contribute and manage entries related to the One Piece series, specifically the Devil Fruits.
 
 ## Planning
 
 ### Initial Steps
 
-Before diving into the code, I took some time to plan out the Snake game project. This planning stage was crucial for understanding how the game would work, defining its logic, and ensuring a smooth development process.
+Before diving into the code, I took some time to plan out the website. This planning stage was crucial for understanding how the website would work, defining its logic, and ensuring a smooth development process.
 
 ### Sketches and Diagrams
 
-I used Excalidraw, a collaborative whiteboard tool, to create visual sketches and diagrams that helped me visualize the game's components and interactions. These sketches allowed me to map out the following key aspects of the game:
+I used Excalidraw, a collaborative whiteboard tool, to create visual sketches and diagrams that helped me visualize the website's components and user interactions. These sketches allowed me to map out the following key aspects of the website:
 
-- **Game Board:** I outlined the grid-based game board where the snake would move and grow. This included defining the dimensions and layout.
-
-- **Snake Movement:** I planned how the snake's movement would be controlled using arrow keys and how it would grow longer as it consumed food.
-
-- **Game Over Conditions:** I identified the conditions that would trigger a game over, such as collision with the board's edge or the snake itself.
-
-- **Food Generation:** I thought about how and where food items would be randomly generated on the game board.
-
-- **Scoring:** I considered how to keep track of the player's score as they successfully guided the snake to eat food.
+insert here
 
 ### Logic Flow
 
-I also created a flowchart to illustrate the logic flow of the game, including the game loop, player input handling, and win/lose conditions. This visual representation helped me ensure that I had a clear understanding of how all the game's components would come together.
+insert
 
 [Excalidraw Diagram](excalidraw.png)
 
 ## Build/Code Process
 
-### Setting Up the Game Board
+I focused on developing the user interface and integrating it with the backend. Here are some key steps I took:
 
-To create the game board, I started by defining a grid using HTML and CSS. Here's an example of the code I used to set up the game board:
-
-```html
-<div id="game-board"></div>
-
-```
-```css
-#game-board {
-    /* Styles for the game board container */
-    position: relative;
-    top: 30px;
-    outline: 2px solid #000;
-}
-```
-This code creates a container for the game board and applies basic styling to position it on the page.
-
-### Handling Snake Movement
-
-Managing snake movement was a critical part of the game. I used JavaScript to handle arrow key input and update the snake's position accordingly. Here's a code snippet that shows how I handled snake movement:
-
-```js
-// Handle arrow key input
-document.addEventListener("keydown", (e) => {
-    if (gameState === "playing" && !gameOver) {
-        if (e.key === "ArrowUp" && activeDirection !== "down") {
-            activeDirection = "up";
-        } else if (e.key === "ArrowDown" && activeDirection !== "up") {
-            activeDirection = "down";
-        } else if (e.key === "ArrowLeft" && activeDirection !== "right") {
-            activeDirection = "left";
-        } else if (e.key === "ArrowRight" && activeDirection !== "left") {
-            activeDirection = "right";
-        }
-    }
-});
-```
-This code listens for arrow key presses and updates the activeDirection variable based on the player's input.
-
-### Game Over Conditions
-
-Implementing game over conditions required careful consideration of collisions. Here's a code snippet illustrating how I handled game over conditions:
-
-```js
-// Check for collisions and game over
-function moveSnake() {
-    // ...
-    if (selfCollision.length >= 1 || newBody[0] < 0 || newBody[0] > gridDimension[0] - 1 || newBody[1] < 0 || newBody[1] > gridDimension[1] - 1) {
-        displayGameOverModal();
-        // ...
-    }
-}
-```
-This code checks for collisions with the game board's edges and the snake itself, triggering a game over if any conditions are met.
-
-These code snippets provide insights into the key components of the Snake game's codebase, from setting up the game board to handling movement and game over conditions. They represent some of the core logic that makes the game functional and enjoyable to play.
-
-# Snake Game
+Created Vue components for displaying and editing Devil Fruit entries.
+Implemented user authentication and authorization.
+Set up API routes for CRUD operations.
 
 ## Challenges
 
 ### Technical Challenges
 
-During the development of the Snake game, I encountered some technical challenges that tested my problem-solving skills and pushed me to learn and grow as a developer.
-
-#### 1. Managing Snake Movement
-
-**Challenge**: One of the early challenges was handling snake movement efficiently while preventing it from moving back into its own body. Implementing this logic in a grid-based system was more complex than I initially anticipated.
-
-**Solution**: To address this challenge, I carefully reviewed the logic responsible for updating the snake's position. I implemented checks to ensure that the snake couldn't move directly into its own body by comparing its current direction with the intended direction. This required thorough debugging and testing to ensure smooth movement.
-
-#### 2. Game Over State Management
-
-**Challenge**: Managing the game over state posed a challenge. While the game displayed a "Game Over" modal, pressing an arrow key would cause the game to continue running in the background.
-
-**Solution**: To address this issue, I had to implement a robust game state management system. I ensured that the game would respond to user input only when it was in the "playing" state. When the game was over, I disabled input to prevent unintended interactions. This required careful event handling and conditional checks to maintain the correct game state and ensure that the "Game Over" modal behaved as expected.
-
 ## Key Learnings/Takeaways
 
-During the development of this Snake game project, I gained valuable insights and improved my skills in several key areas:
-
-- **Game Development**: This project allowed me to delve into the world of game development, where I learned about game loops, collision detection, and rendering game elements in real-time. I now have a deeper understanding of how to create interactive and engaging user experiences.
-
-- **JavaScript Proficiency**: Working on this project significantly enhanced my JavaScript skills. I gained proficiency in handling user input, managing game state, and optimizing code for smoother gameplay.
-
-- **Problem Solving**: I encountered various challenges throughout the project, such as managing game over states and optimizing game logic. These challenges pushed me to think critically and develop effective problem-solving strategies. Debugging and profiling became essential skills in addressing issues and improving the game.
-
-- **Project Management**: While I worked independently on this project, I learned the importance of project management and planning. I became more organized in setting goals, managing timelines, and breaking down tasks into manageable steps. This experience will be valuable in future collaborative projects.
-
-- **User Experience (UX) Design**: Although this project focused primarily on game mechanics, I also considered the user experience. I learned to create intuitive game controls and provide feedback to the player through visual and audio cues.
-
-These key learnings and takeaways have not only improved my technical skills but also shaped me into a more versatile and adaptive engineer. I look forward to applying these lessons in future projects and continuing to grow as a developer.
-
-## Bugs
-
-- **Pause Functionality**: There is a minor issue with the pause functionality. When the game is paused using the spacebar, the pause modal appears as expected. However, pressing the spacebar again does not resume the game. This behavior can be improved to allow players to easily pause and resume the game seamlessly.
+Through this project, I gained confidence in working with Vue.js and Vuex. I also improved my understanding of project management practices. This experience has enhanced my problem-solving skills and teamwork.
 
 ## Future Improvements
 
-While the current version of the game is functional, there are several exciting features and enhancements that could be added in the future to make it even more engaging and challenging:
-
-- **Power-Ups and Boosts**: Implement power-up items that appear at random intervals on the game board. These power-ups could provide benefits like increased speed, temporary invincibility, or the ability to pass through walls.
-
-- **Score Modifiers**: Introduce score modifiers such as "poison" items that, when consumed, decrease the player's score. This would add an extra layer of strategy and risk to the game.
-
-- **Responsive Design**: Improve the game's responsiveness to make it playable and enjoyable on a wider range of devices, including mobile phones and tablets.
-
-- **High Score Leaderboard**: Implement a high score leaderboard to encourage competition among players and provide a sense of achievement.
-
-These future improvements would enhance the gameplay experience and make the game even more addictive and fun.
-
+Implement user profiles and avatars.
+Enhance the search and filter functionality for Devil Fruit entries.
+Include comments and likes for entries.
 
 
 
