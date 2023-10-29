@@ -70,14 +70,19 @@ These features combine to make our Devil Fruit Catalog a valuable resource for O
 
 ## Installation
 
-Clone the repository to your local machine:
+To run The One Piece Orchard frontend on your local machine, follow these steps:
 
-Open your terminal or command prompt and navigate to the directory where you want to store the game on your local machine. 
-Then, use the following command to clone the repository: 
+**Prerequisites:**
+- Node.js: Make sure you have Node.js installed. You can download it from [nodejs.org](https://nodejs.org/).
 
+**Clone the Repository**
+
+Open your terminal or command prompt and navigate to the directory where you want to store the frontend project. Then, use the following command to clone the repository:
+
+```bash
+git clone https://github.com/AishaA14/one-piece-orchard-frontend.git
 ```
-git clone https://github.com/AishaA14/snake_project.git
-```
+
 ## Timeframe & Working Team
 
 This project was completed within a week, working independently. 
