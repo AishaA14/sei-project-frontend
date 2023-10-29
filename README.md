@@ -10,7 +10,6 @@ This is the frontend code for The One Piece Orchard, a web application that serv
 
 - [Deployment Link](#deployment-link)
 - [Features](#features)
-- [How to Play](#how-to-play)
 - [Installation](#installation)
 - [Timeframe & Working Team](#timeframe--working-team)
 - [Technologies Used](#technologies-used)
@@ -18,19 +17,15 @@ This is the frontend code for The One Piece Orchard, a web application that serv
 - [Planning](#planning)
   - [Initial Steps](#initial-steps)
   - [Sketches and Diagrams](#sketches-and-diagrams)
-  - [Logic Flow](#logic-flow)
 - [Build/Code Process](#buildcode-process)
-  - [Setting Up the Game Board](#setting-up-the-game-board)
-  - [Handling Snake Movement](#handling-snake-movement)
-  - [Game Over Conditions](#game-over-conditions)
+  - [Adding a New Fruit](#adding-a-new-fruit)
+  - [Editing an Existing Fruit](#editing-an-existing-fruit)
+  - [Deleting an Existing Fruit](#deleting-an-existing-fruit)
 - [Challenges](#challenges)
-  - [Technical Challenges](#technical-challenges)
-    - [Managing Snake Movement](#1-managing-snake-movement)
-    - [Game Over State Management](#2-game-over-state-management)
+  - [Challenge 1: Restricting Edit and Add Options](#challenge-1-restricting-edit-and-add-options)
+  - [Challenge 2: Restricting Access to the "Add New Fruit" Link](#challenge-2-restricting-access-to-the-add-new-fruit-link)
 - [Key Learnings/Takeaways](#key-learningstakeaways)
-- [Bugs](#bugs)
 - [Future Improvements](#future-improvements)
-
 
 
 ## Deployment Link
@@ -41,7 +36,7 @@ To be able add entries or make edits, click the account tab and click on login t
 
 ## Features
 
-Our Devil Fruit Catalog application offers a range of features to enhance the user experience and provide a comprehensive database of Devil Fruits from the One Piece universe. Here are some of the core features:
+My Devil Fruit Catalog application offers a range of features to enhance the user experience and provide a comprehensive database of Devil Fruits from the One Piece universe. Here are some of the core features:
 
 ### 1. Devil Fruit Listings
 
@@ -67,17 +62,11 @@ Our Devil Fruit Catalog application offers a range of features to enhance the us
 
 - **Validation and Error Handling**: The application provides feedback and error messages to ensure that all submitted Devil Fruits meet the required criteria.
 
-### 5. Responsive Design
-
-- **Mobile and Desktop Friendly**: The application is designed to work seamlessly on various devices, offering an optimized user experience on both mobile phones and desktop computers.
-
-### 6. Intuitive User Interface
+### 5. Intuitive User Interface
 
 - **User-Friendly Interface**: We've focused on creating an intuitive and visually appealing design to ensure easy navigation and exploration of Devil Fruit information.
 
 These features combine to make our Devil Fruit Catalog a valuable resource for One Piece enthusiasts and a collaborative platform for sharing knowledge about these mystical and intriguing fruits.
-
-
 
 ## Installation
 
@@ -122,13 +111,8 @@ Before diving into the code, I took some time to plan out the website. This plan
 
 I used Excalidraw, a collaborative whiteboard tool, to create visual sketches and diagrams that helped me visualize the website's components and user interactions. These sketches allowed me to map out the following key aspects of the website:
 
-insert here
-
-### Logic Flow
-
-insert
-
 [Excalidraw Diagram](excalidraw.png)
+
 
 ## Build/Code Process
 
@@ -205,7 +189,7 @@ async editFruit() {
 }
 ```
 
-### deleting an Existing Fruit
+### Deleting an Existing Fruit
 
 The 'deleteFruit' method sends a delete request to the API, targeting the specific devil fruit by its 'id'. After successful deletion the user is redirected to the Fruit List page where the deleted fruit will no longer appear. Below is the JavaScript code for the `deleteFruit` method:
 
@@ -256,6 +240,7 @@ Implement user profiles and avatars.
 Include drag and drop image function for users to add images of Devil Fruits.
 Generate rankings based on user ratings.
 Enhance the search and filter functionality for Devil Fruit entries.
+Optimise the app for mobile.
 Include community forum
 
 
