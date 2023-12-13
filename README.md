@@ -1,10 +1,10 @@
-# The One Piece Orchard Frontend
-![Game Screenshot](.png)
+# The One Piece Orchard
+![Home Page](opo.png)
 
 
 ## Description
 
-This is the frontend code for The One Piece Orchard, a web application that serves as an online library for fans of the One Piece series. It allows logged-in users to create new "Devil Fruit" entries, edit existing ones, and even delete them. This project was built using the Bootstrap, MEVN stack, consisting of MongoDB, Express.js, Vue.js, and Node.js.
+This is the frontend code for The One Piece Orchard, a web application that serves as an online library for fans of the One Piece series. It allows logged-in users to create new "Devil Fruit" entries, edit existing ones, and even delete them. This project was built using the Bootstrap, MEVN stack, consisting of MongoDB, Express.js, Vue.js, and Node.js. For more detail of the backend, see [backend repository](https://github.com/AishaA14/the-one-piece-orchard-backend)
 
 ## Table of Contents
 
@@ -15,8 +15,6 @@ This is the frontend code for The One Piece Orchard, a web application that serv
 - [Technologies Used](#technologies-used)
 - [Brief](#brief)
 - [Planning](#planning)
-  - [Initial Steps](#initial-steps)
-  - [Sketches and Diagrams](#sketches-and-diagrams)
 - [Build/Code Process](#buildcode-process)
   - [Adding a New Fruit](#adding-a-new-fruit)
   - [Editing an Existing Fruit](#editing-an-existing-fruit)
@@ -100,23 +98,8 @@ Development Tools: Visual Studio Code, Postman.
 This project was developed as part of my coding bootcamp curriculum. The project's goal was to create a user-friendly online library where fans could contribute and manage entries related to the One Piece series, specifically the Devil Fruits.
 
 ## Planning
-
-During the planning phase, I created wireframes and sketched the user interface. Below are some of the planning elements:
-
-Wireframes: Here is the proposed design of the website:
-Wireframe
-
-ERD Diagram: The Entity-Relationship Diagram outlines the relationships within the database. Here's an example:
-
-### Initial Steps
-
-Before diving into the code, I took some time to plan out the website. This planning stage was crucial for understanding how the website would work, defining its logic, and ensuring a smooth development process.
-
-### Sketches and Diagrams
-
-I used Excalidraw, a collaborative whiteboard tool, to create visual sketches and diagrams that helped me visualize the website's components and user interactions. These sketches allowed me to map out the following key aspects of the website:
-
-[Excalidraw Diagram](excalidraw.png)
+In my planning stage, I broke down components of the app that I would need, including the different pages the user will require, taking into account the flow of the application.
+More importantly, I mapped out the relationships between the data models.
 
 
 ## Build/Code Process
